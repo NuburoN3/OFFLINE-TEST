@@ -1,78 +1,63 @@
 :root {
-   (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/styles.css b/styles.css
-index d8f0aef469f800bff97c18a087cfbffbb00f1ba9..1db4509fe4e209360d62c57ff8880e21014d11fc 100644
---- a/styles.css
-+++ b/styles.css
-@@ -2,59 +2,59 @@
-   --bg: #07070c;
-   --text: #f5f5f5;
-   --accent: #9b5cff;
- }
- 
- * {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-   font-family: 'Inter', sans-serif;
- }
- 
- body {
-   background: var(--bg);
-   color: var(--text);
- }
- 
- /* HERO */
- 
- /* PLACE SIGNUP FULL-WIDTH UNDER PANELS (DESKTOP) */
- @media (min-width: 769px) {
-   .hero-grid {
-     row-gap: 2.5rem;
-   }
- 
--  .signup {
--    grid-column: 1 / -1;
--    margin-top: 1.5rem;
--  }
--
--  .hero-panel.latest {
--    margin-top: 0;
--    transform: translateY(1.5rem);
--  }
-+  .signup {
-+    grid-column: 1 / -1;
-+    margin-top: 0.75rem;
-+  }
-+
-+  .hero-panel.latest {
-+    margin-top: 0;
-+    transform: translateY(4.25rem);
-+  }
- 
-   .hero-panel.latest .panel-label {
-     margin-top: 0;
-   }
- }
- 
- 
- .hero-grid {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 4rem;
-   align-items: center;
- }
- 
- .hero-panel {
-   text-align: center;
- }
- /* LATEST PANEL LAYOUT FIX (DESKTOP) */
- .hero-panel.latest {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   grid-column: 1 / -1;
- }
- 
+  --bg: #07070c;
+  --text: #f5f5f5;
+  --accent: #9b5cff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* HERO */
+
+/* PLACE SIGNUP FULL-WIDTH UNDER PANELS (DESKTOP) */
+@media (min-width: 769px) {␊
+  .hero-grid {␊
+    row-gap: 1.6rem;
+  }␊
+␊
+  .signup {␊
+    grid-column: 1 / -1;␊
+    margin-top: 0.4rem;
+  }␊
+␊
+  .hero-panel.latest {␊
+    margin-top: 0;␊
+    transform: translateY(3.1rem);
+  }␊
+
+  .hero-panel.latest .panel-label {
+    margin-top: 0;
+  }
+}
+
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-panel {
+  text-align: center;
+}
+/* LATEST PANEL LAYOUT FIX (DESKTOP) */
+.hero-panel.latest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
  
 EOF
 )
@@ -594,7 +579,7 @@ EOF
     max-height: 32vh;
   }
 
-  /* Slightly smaller countdown */
+/* Slightly smaller countdown */
   .countdown-time {
     font-size: 1rem;
   }
@@ -619,7 +604,7 @@ EOF
    LOGO APPEAR (DESKTOP + MOBILE)
    ========================= */
 
-.site-logo {
+.site-logo {␊
   position: absolute;
   top: 30px;
   left: 50%;
@@ -633,15 +618,6 @@ EOF
   /* appears when glitch starts */
   animation: logo-show 0s forwards 0.9s,
              logo-glitch 0.4s steps(2) 0.9s;
-}
-
-@keyframes logo-show {
-  to {
-    opacity: 0.9;
-  }
-}
-
-}
 }
 
 @keyframes logo-glitch {
@@ -693,6 +669,7 @@ EOF
     margin-bottom: 1.5rem;
   }
 }
+
 
 
 
