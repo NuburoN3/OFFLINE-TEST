@@ -29,10 +29,10 @@ body {
     margin-top: 1.5rem;
   }
 
-  .hero-panel.latest {
-    margin-top: 0;
-    transform: translateY(1.5rem);
-  }
+  .hero-panel.latest {␊
+    margin-top: 0;␊
+    transform: translateY(2.4rem);
+  }␊
 
   .hero-panel.latest .panel-label {
     margin-top: 0;
@@ -57,6 +57,7 @@ body {
   align-items: center;
   grid-column: 1 / -1;
 }
+
 
 .hero-panel.latest .panel-label {
   margin-bottom: 0.35rem;
@@ -675,6 +676,7 @@ body {
     margin-bottom: 1.5rem;
   }
 }
+
 
 
 
