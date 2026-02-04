@@ -19,20 +19,15 @@ body {
 /* HERO */
 
 /* PLACE SIGNUP FULL-WIDTH UNDER PANELS (DESKTOP) */
-@media (min-width: 769px) {␊
-  .hero-grid {␊
-    row-gap: 1.6rem;
-  }␊
-␊
-  .signup {␊
-    grid-column: 1 / -1;␊
-    margin-top: 0.4rem;
-  }␊
-␊
-  .hero-panel.latest {␊
-    margin-top: 0;␊
-    transform: translateY(3.1rem);
-  }␊
+@media (min-width: 769px) {
+  .signup {
+    grid-column: 1 / -1;
+    margin-top: 2.5rem;
+  }
+
+  .hero-panel.latest {
+    margin-top: 3rem;
+  }
 
   .hero-panel.latest .panel-label {
     margin-top: 0;
@@ -58,9 +53,6 @@ body {
   grid-column: 1 / -1;
 }
 
- 
-EOF
-)
 .hero-panel.latest .panel-label {
   margin-bottom: 0.35rem;
 }
@@ -579,7 +571,7 @@ EOF
     max-height: 32vh;
   }
 
-/* Slightly smaller countdown */
+  /* Slightly smaller countdown */
   .countdown-time {
     font-size: 1rem;
   }
@@ -604,7 +596,7 @@ EOF
    LOGO APPEAR (DESKTOP + MOBILE)
    ========================= */
 
-.site-logo {␊
+.site-logo {
   position: absolute;
   top: 30px;
   left: 50%;
@@ -618,6 +610,15 @@ EOF
   /* appears when glitch starts */
   animation: logo-show 0s forwards 0.9s,
              logo-glitch 0.4s steps(2) 0.9s;
+}
+
+@keyframes logo-show {
+  to {
+    opacity: 0.9;
+  }
+}
+
+}
 }
 
 @keyframes logo-glitch {
@@ -669,6 +670,7 @@ EOF
     margin-bottom: 1.5rem;
   }
 }
+
 
 
 
