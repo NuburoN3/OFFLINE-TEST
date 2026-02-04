@@ -20,13 +20,18 @@ body {
 
 /* PLACE SIGNUP FULL-WIDTH UNDER PANELS (DESKTOP) */
 @media (min-width: 769px) {
+  .hero-grid {
+    row-gap: 2.5rem;
+  }
+
   .signup {
     grid-column: 1 / -1;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
 
   .hero-panel.latest {
-    margin-top: 3rem;
+    margin-top: 0;
+    transform: translateY(1.5rem);
   }
 
   .hero-panel.latest .panel-label {
@@ -670,6 +675,7 @@ body {
     margin-bottom: 1.5rem;
   }
 }
+
 
 
 
