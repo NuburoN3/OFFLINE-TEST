@@ -659,17 +659,17 @@ body {
    MOBILE LOGO + SPACING
    ========================= */
 
-@media (max-width: 768px) {
-  .site-logo {
-    height: 68px;
-    top: 18px;
-  }
-
-  /* Push hero content down so logo never overlaps */
-  .hero-content {
-    padding-top: 100px;
-  }
-}
+@media (max-width: 768px) {␊
+  .site-logo {␊
+    height: 68px;␊
+    top: 18px;␊
+  }␊
+␊
+  /* Push hero content down so logo never overlaps */␊
+  .hero-content {␊
+    padding-top: 120px;
+  }␊
+}␊
 /* =========================
    MOBILE: TIGHTEN SIGNUP SPACING
    ========================= */
@@ -697,6 +697,7 @@ body {
     margin-bottom: 1.5rem;
   }
 }
+
 
 
 
