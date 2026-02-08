@@ -68,8 +68,8 @@
     target="_blank"
   >
     LISTEN NOW
-  </a>␊
-</div>␊
+  </a>
+</div>
 
 <section class="signup" aria-label="Email signup">
   <div class="signup-card">
@@ -185,7 +185,7 @@
         button.href = buttonUrl;
         button.target = "_blank";
         button.textContent = "LISTEN HERE";
-        countdown.replaceWith(button);
+        countdown.replaceChildren(button);
       };
 
       const updateCountdown = () => {
@@ -227,5 +227,4 @@
 </body>
 
 </html>
-
 
