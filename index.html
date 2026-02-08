@@ -50,6 +50,7 @@
         <span class="countdown-label">RELEASES IN</span>
         <span class="countdown-time" data-countdown-time>-- : -- : -- : --</span>
       </div>
+      <audio data-countdown-sound src="tick.wav" preload="auto"></audio>
     </div>
 
     <!-- LATEST -->
@@ -169,6 +170,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const countdown = document.querySelector("[data-countdown]");
       const timeDisplay = document.querySelector("[data-countdown-time]");
+      const tickSound = document.querySelector("[data-countdown-sound]");
 
       if (!countdown || !timeDisplay) {
         return;
@@ -210,6 +212,14 @@
         timeDisplay.classList.remove("gate-slide");
         void timeDisplay.offsetWidth;
         timeDisplay.classList.add("gate-slide");
+
+        if (tickSound) {
+          tickSound.currentTime = 0;
+          const playPromise = tickSound.play();
+          if (playPromise) {
+            playPromise.catch(() => {});
+          }
+        }
       };
 
       updateCountdown();
@@ -227,4 +237,5 @@
 </body>
 
 </html>
+
 
