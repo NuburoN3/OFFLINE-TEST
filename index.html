@@ -48,7 +48,17 @@
         aria-live="polite"
       >
         <span class="countdown-label">RELEASES IN</span>
-        <span class="countdown-time" data-countdown-time>-- : -- : -- : --</span>
+        <div class="countdown-row">
+          <span class="countdown-time" data-countdown-time>-- : -- : -- : --</span>
+          <button
+            class="cta countdown-mute"
+            type="button"
+            data-countdown-mute
+            aria-pressed="false"
+          >
+            SOUND ON
+          </button>
+        </div>
       </div>
       <audio data-countdown-sound src="tick.wav" preload="auto"></audio>
     </div>
@@ -76,17 +86,6 @@
   <div class="signup-card">
     <p class="signup-eyebrow">Join our fan list</p>
     <p class="signup-text">Get notified when we drop new music</p>
-
-    <form
-      class="signup-form"
-      action="https://buttondown.com/api/emails/embed-subscribe/Nuburo"
-      method="post"
-    >
-      <label class="signup-label" for="signup-email">Email address</label>
-      <input
-        id="signup-email"
-        type="email"
-        name="email"
         placeholder="Email address"
        required
       />
@@ -153,6 +152,17 @@
       </a>
       <a href="https://youtube.com/@nuburo" target="_blank">
         YouTube
+      <a href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0" target="_blank">
+        Spotify
+      </a>
+      <a href="https://music.apple.com/gb/artist/nuburo/438306805" target="_blank">
+        Apple Music
+      </a>
+      <a href="https://music.youtube.com/channel/UCYvH1XPYU1V0BpR0y0lGR8A">
+        YouTube Music
+      </a>
+      <a href="https://youtube.com/@nuburo" target="_blank">
+        YouTube
       </a>
       <a href="https://www.instagram.com/nuburo" target="_blank">
         Instagram
@@ -171,6 +181,7 @@
       const countdown = document.querySelector("[data-countdown]");
       const timeDisplay = document.querySelector("[data-countdown-time]");
       const tickSound = document.querySelector("[data-countdown-sound]");
+      const muteButton = document.querySelector("[data-countdown-mute]");
 
       if (!countdown || !timeDisplay) {
         return;
@@ -180,6 +191,22 @@
       const buttonUrl = "https://nuburo.fanlink.tv/nuburo-new-single";
 
       const pad = (value) => String(value).padStart(2, "0");
+      let manualMute = false;
+
+      const updateMuteButton = () => {
+        if (!muteButton) {
+          return;
+        }
+        muteButton.textContent = manualMute ? "SOUND OFF" : "SOUND ON";
+        muteButton.setAttribute("aria-pressed", manualMute ? "true" : "false");
+      };
+
+      const syncSoundState = () => {
+        if (!tickSound) {
+          return;
+        }
+        tickSound.muted = manualMute || document.hidden;
+      };
 
       const swapToButton = () => {
         const button = document.createElement("a");
@@ -213,7 +240,7 @@
         void timeDisplay.offsetWidth;
         timeDisplay.classList.add("gate-slide");
 
-        if (tickSound) {
+        if (tickSound && !tickSound.muted) {
           tickSound.currentTime = 0;
           const playPromise = tickSound.play();
           if (playPromise) {
@@ -222,6 +249,17 @@
         }
       };
 
+      if (muteButton) {
+        muteButton.addEventListener("click", () => {
+          manualMute = !manualMute;
+          updateMuteButton();
+          syncSoundState();
+        });
+      }
+
+      document.addEventListener("visibilitychange", syncSoundState);
+      updateMuteButton();
+      syncSoundState();
       updateCountdown();
       const timerId = setInterval(updateCountdown, 1000);
     });
@@ -237,5 +275,7 @@
 </body>
 
 </html>
+
+
 
 
