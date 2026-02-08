@@ -30,6 +30,28 @@
 
  <div class="hero-grid">
 
+    <!-- NEW SINGLE -->
+    <div class="hero-panel new-single">
+      <p class="panel-label">NEW SINGLE</p>
+
+      <img
+        class="hero-artwork"
+        src="/images/upcoming.jpg"
+        alt="Upcoming song artwork"
+      />
+
+      <!-- Countdown timer (replaces the listen button) -->
+      <div
+        class="countdown"
+        data-countdown
+        data-release="2026-02-11T00:00:00"
+        aria-live="polite"
+      >
+        <span class="countdown-label">RELEASES IN</span>
+        <span class="countdown-time" data-countdown-time>-- : -- : -- : --</span>
+      </div>
+    </div>
+
     <!-- LATEST -->
     <div class="hero-panel latest">
   <p class="panel-label">LATEST RELEASE</p>
@@ -46,8 +68,8 @@
     target="_blank"
   >
     LISTEN NOW
-  </a>
-</div>
+  </a>␊
+</div>␊
 
 <section class="signup" aria-label="Email signup">
   <div class="signup-card">
@@ -112,7 +134,7 @@
       <a
         class="release"
         href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0"
-        target="_blank"
+       target="_blank"
       >
         <img src="artwork-3.jpg" alt="Previous release 3" />
       </a>
@@ -141,8 +163,59 @@
   
 
 
+  <!-- Countdown timer script -->
+  <script>
+    // Countdown timer for the "New Single" section.
+    document.addEventListener("DOMContentLoaded", () => {
+      const countdown = document.querySelector("[data-countdown]");
+      const timeDisplay = document.querySelector("[data-countdown-time]");
 
+      if (!countdown || !timeDisplay) {
+        return;
+      }
 
+      const releaseDate = new Date(countdown.dataset.release);
+      const buttonUrl = "https://nuburo.fanlink.tv/nuburo-new-single";
+
+      const pad = (value) => String(value).padStart(2, "0");
+
+      const swapToButton = () => {
+        const button = document.createElement("a");
+        button.className = "cta";
+        button.href = buttonUrl;
+        button.target = "_blank";
+        button.textContent = "LISTEN HERE";
+        countdown.replaceWith(button);
+      };
+
+      const updateCountdown = () => {
+        const now = new Date();
+        const diff = releaseDate - now;
+
+        if (diff <= 0) {
+          swapToButton();
+          clearInterval(timerId);
+          return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        timeDisplay.textContent = `${pad(days)} : ${pad(hours)} : ${pad(minutes)} : ${pad(seconds)}`;
+
+        // Trigger sliding gate animation each tick.
+        timeDisplay.classList.remove("gate-slide");
+        void timeDisplay.offsetWidth;
+        timeDisplay.classList.add("gate-slide");
+      };
+
+      updateCountdown();
+      const timerId = setInterval(updateCountdown, 1000);
+    });
+  </script>
 </body>
 </html>
 
@@ -154,6 +227,7 @@
 </body>
 
 </html>
+
 
 
 
