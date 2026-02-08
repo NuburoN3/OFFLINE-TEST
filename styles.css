@@ -254,6 +254,33 @@ body {
     opacity: 1;
   }
 }
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+  border: 1px solid rgba(155,92,255,0.65);
+  background: rgba(10,10,18,0.6);
+  color: var(--accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta::before,
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(155,92,255,0.15);
+  opacity: 0;
+  pointer-events: none;
+}
 .cta:hover {
   background: var(--accent);
   color: #fff;
@@ -658,17 +685,17 @@ body {
    MOBILE LOGO + SPACING
    ========================= */
 
-@media (max-width: 768px) {␊
-  .site-logo {␊
-    height: 68px;␊
-    top: 18px;␊
-  }␊
-␊
-  /* Push hero content down so logo never overlaps */␊
-  .hero-content {␊
+@media (max-width: 768px) {
+  .site-logo {
+    height: 68px;
+    top: 18px;
+  }
+
+  /* Push hero content down so logo never overlaps */
+  .hero-content {
     padding-top: 120px;
-  }␊
-}␊
+  }
+}
 /* =========================
    MOBILE: TIGHTEN SIGNUP SPACING
    ========================= */
@@ -696,25 +723,3 @@ body {
     margin-bottom: 1.5rem;
   }
 }
-
-.countdown-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.countdown-mute {
-  padding: 0.45rem 0.9rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  line-height: 1;
-  min-height: auto;
-}
-
-.countdown-mute[aria-pressed="true"] {
-  opacity: 0.65;
-  transform: translateY(1px);
-}
-
