@@ -1,232 +1,701 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NUBURO</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+:root {
+  --bg: #07070c;
+  --text: #f5f5f5;
+  --accent: #9b5cff;
+}
 
-<body>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
 
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
-  <!-- Page load pixel glitch overlay -->
-  <div class="page-glitch">
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-    <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-  </div>
+/* HERO */
 
-  <header class="hero">
-<img src="logo.png" alt="Nuburo logo" class="site-logo">
-    <div class="hero-content">
-      <nav class="hero-tabs" aria-label="Primary">
-        <a class="hero-tab" href="https://fanlink.tv/nuburo-lieder-album">Lieder</a>
-        <a class="hero-tab" href="https://fanlink.tv/Purpose-Direction-Album">Purpose & Direction</a>
-      </nav>
+/* PLACE SIGNUP FULL-WIDTH UNDER PANELS (DESKTOP) */
+@media (min-width: 769px) {
+  .signup {
+    grid-column: 1 / -1;
+    margin-top: 2.5rem;
+  }
 
- <div class="hero-grid">
-
-    <!-- NEW SINGLE -->
-    <div class="hero-panel new-single">
-      <p class="panel-label">NEW SINGLE</p>
-
-      <img
-        class="hero-artwork"
-        src="new-song-art.png"
-        alt="Upcoming song artwork"
-      />
-
-      <!-- Countdown timer (replaces the listen button) -->
-      <div
-        class="countdown"
-        data-countdown
-        data-release="2026-02-11T00:00:00"
-        aria-live="polite"
-      >
-        <span class="countdown-label">RELEASES IN</span>
-        <span class="countdown-time" data-countdown-time>-- : -- : -- : --</span>
-      </div>
-    </div>
-
-    <!-- LATEST -->
-    <div class="hero-panel latest">
-  <p class="panel-label">LATEST RELEASE</p>
-
-  <img
-    class="hero-artwork"
-    src="thistown.png"
-    alt="Latest Song Artwork"
-  />
-
-  <a
-    class="cta"
-    href="https://nuburo.fanlink.tv/nuburo-new-single"
-    target="_blank"
-  >
-    LISTEN NOW
-  </a>
-</div>
-
-<section class="signup" aria-label="Email signup">
-  <div class="signup-card">
-    <p class="signup-eyebrow">Join our fan list</p>
-    <p class="signup-text">Get notified when we drop new music</p>
-
-    <form
-      class="signup-form"
-      action="https://buttondown.com/api/emails/embed-subscribe/Nuburo"
-      method="post"
-    >
-      <label class="signup-label" for="signup-email">Email address</label>
-      <input
-        id="signup-email"
-        type="email"
-        name="email"
-        placeholder="Email address"
-       required
-      />
-      <button type="submit">SUBSCRIBE</button>
-    </form>
-    <p class="signup-note">No spam. Unsubscribe anytime.</p>
-  </div>
-</section>
-
- </div>
-
-  
-</div>
+  .hero-panel.latest .panel-label {
+    margin-top: 0;
+  }
+}
 
 
-  </header>
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
 
-  <main>
+/* Hero panel alignment (shared for both columns) */
+.hero-panel {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* LATEST PANEL LAYOUT FIX (DESKTOP) */
+.hero-panel.latest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    <!-- Current release (edit only this section for new drops) -->
-    <section
-      id="current-release"
-      data-title="NEW SONG EVERY WEDNESDAY"
-      data-link="https://nuburo.fanlink.tv/nuburo-new-single">
-    </section>
+.hero-panel.latest .panel-label {
+  margin-bottom: 0.35rem;
+}
 
-    <section class="releases" id="previous-releases">
-      <h3>PREVIOUS RELEASES</h3>
-
-      <a
-        class="release"
-        href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0"
-        target="_blank"
-      >
-        <img src="artwork-1.jpg" alt="Previous release 1" />
-      </a>
-
-      <a
-        class="release"
-        href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0"
-        target="_blank"
-      >
-        <img src="artwork-2.jpg" alt="Previous release 2" />
-      </a>
-
-      <a
-        class="release"
-        href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0"
-       target="_blank"
-      >
-        <img src="artwork-3.jpg" alt="Previous release 3" />
-      </a>
-    </section>
-
-    <section class="links">
-      <a href="https://open.spotify.com/artist/1rXOhkpYrBNvXvhpmPoAs0" target="_blank">
-        Spotify
-      </a>
-      <a href="https://music.apple.com/gb/artist/nuburo/438306805" target="_blank">
-        Apple Music
-      </a>
-      <a href="https://music.youtube.com/channel/UCYvH1XPYU1V0BpR0y0lGR8A">
-        YouTube Music
-      </a>
-      <a href="https://youtube.com/@nuburo" target="_blank">
-        YouTube
-      </a>
-      <a href="https://www.instagram.com/nuburo" target="_blank">
-        Instagram
-      </a>
-    </section>
-
-  </main>
-
-  
+.hero-panel.latest .hero-artwork {
+  margin-bottom: 1.1rem;
+}
 
 
-  <!-- Countdown timer script -->
-  <script>
-    // Countdown timer for the "New Single" section.
-    document.addEventListener("DOMContentLoaded", () => {
-      const countdown = document.querySelector("[data-countdown]");
-      const timeDisplay = document.querySelector("[data-countdown-time]");
-
-      if (!countdown || !timeDisplay) {
-        return;
-      }
-
-      const releaseDate = new Date(countdown.dataset.release);
-      const buttonUrl = "https://nuburo.fanlink.tv/nuburo-new-single";
-
-      const pad = (value) => String(value).padStart(2, "0");
-
-      const swapToButton = () => {
-        const button = document.createElement("a");
-        button.className = "cta";
-        button.href = buttonUrl;
-        button.target = "_blank";
-        button.textContent = "LISTEN HERE";
-        countdown.replaceChildren(button);
-      };
-
-      const updateCountdown = () => {
-        const now = new Date();
-        const diff = releaseDate - now;
-
-        if (diff <= 0) {
-          swapToButton();
-          clearInterval(timerId);
-          return;
-        }
-
-        const totalSeconds = Math.floor(diff / 1000);
-        const days = Math.floor(totalSeconds / 86400);
-        const hours = Math.floor((totalSeconds % 86400) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-
-        timeDisplay.textContent = `${pad(days)} : ${pad(hours)} : ${pad(minutes)} : ${pad(seconds)}`;
-
-        // Trigger sliding gate animation each tick.
-        timeDisplay.classList.remove("gate-slide");
-        void timeDisplay.offsetWidth;
-        timeDisplay.classList.add("gate-slide");
-      };
-
-      updateCountdown();
-      const timerId = setInterval(updateCountdown, 1000);
-    });
-  </script>
-</body>
-</html>
-
-  
+.panel-label {
+  margin-top: -0.6rem; /* pulls label upward */
+  margin-bottom: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  opacity: 0.6;
+}
 
 
 
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
-</body>
+  background-image:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("thistown.png");
 
-</html>
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  filter: blur(22px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: hero-reveal 0.6s ease forwards;
+  animation-delay: 0.8s;
+  padding-top: 140px;
+}
+
+.hero-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-tab {
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.2rem;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-tab:hover,
+.hero-tab:focus-visible {
+  opacity: 1;
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.hero-artwork {
+  max-height: 40vh;
+  max-width: 70vw;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.band-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.2rem;
+  letter-spacing: 0.35em;
+}
+
+.single-title {
+  margin: 1rem 0 2rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+
+.countdown {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.25em;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+.countdown-time {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  overflow: hidden;
+}
+/* GLITCH EFFECT ON TICK */
+
+.countdown-time.glitch {
+  animation: countdown-glitch 0.25s steps(2);
+}
+
+/* Sliding gate transition on each tick */
+.countdown-time::before,
+.countdown-time::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(155,92,255,0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.countdown-time::before {
+  left: 0;
+}
+
+.countdown-time::after {
+  right: 0;
+}
+
+.countdown-time.gate-slide::before {
+  animation: gate-slide-left 0.5s ease both;
+}
+
+.countdown-time.gate-slide::after {
+  animation: gate-slide-right 0.5s ease both;
+}
+
+@keyframes gate-slide-left {
+  0% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
+}
+
+@keyframes gate-slide-right {
+  0% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+@keyframes countdown-glitch {
+  0% {
+    transform: translateX(0);
+    text-shadow: none;
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-2px);
+    text-shadow: 2px 0 var(--accent);
+  }
+  40% {
+    transform: translateX(2px);
+    text-shadow: -2px 0 #fff;
+  }
+  60% {
+    transform: translateX(-1px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(0);
+    text-shadow: none;
+    opacity: 1;
+  }
+}
+.cta:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(155,92,255,0.5);
+}
+
+.cta:hover::before,
+.cta:hover::after {
+  opacity: 0.3;
+  animation: glitch-scan 0.45s linear;
+}
+
+/* 🔔 SIGNUP (UNDER CTA) */
+
+.signup {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.signup-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(11,11,20,0.9), rgba(20,12,32,0.85));
+  border: 1px solid rgba(155,92,255,0.35);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.signup-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+}
+
+.signup-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.signup-note {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+.signup-form {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.signup-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.signup-form input {
+  flex: 1;
+  min-width: 180px;
+  background: rgba(8,8,14,0.9);
+  border: 1px solid rgba(155,92,255,0.45);
+  color: #fff;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  letter-spacing: 0.08em;
+  outline: none;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.signup-form input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.signup-form button {
+  background: linear-gradient(135deg, rgba(155,92,255,0.2), rgba(155,92,255,0.5));
+  border: 1px solid rgba(155,92,255,0.8);
+  color: #fff;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.signup-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(155,92,255,0.5);
+  border-color: rgba(255,255,255,0.9);
+}
+
+.signup-form input:focus,
+.signup-form button:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(155,92,255,0.35);
+}
+
+@media (max-width: 640px) {
+  .signup-card {
+    width: min(100%, 340px);
+    padding: 1rem 1.1rem;
+  }
+
+  .signup-form {
+    flex-direction: column;
+  }
+
+  .signup-form input {
+    width: 100%;
+  }
+
+  .signup-form button {
+    width: 100%;
+  }
+}
+
+/* RELEASES */
+
+.releases {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.releases h3 {
+  margin-bottom: 2rem;
+  letter-spacing: 0.2em;
+}
+
+.release {
+  margin-bottom: 2.5rem;
+}
+
+.release img {
+  width: 280px;
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
+  transition: box-shadow 0.25s ease;
+}
+
+.release:hover img {
+  box-shadow:
+    0 16px 40px rgba(0,0,0,0.5),
+    0 0 18px rgba(155,92,255,0.25);
+}
+
+/* LINKS */
+
+.links {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.links a:hover {
+  border-color: var(--accent);
+}
+
+/* PAGE LOAD PIXEL TRANSITION */
+
+.page-glitch {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  animation: glitch-out 1.4s ease forwards;
+}
+
+.page-glitch .pixel {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(155,92,255,0.9);
+  opacity: 0;
+  top: calc(10% + (80% * var(--y)));
+  left: -5%;
+  animation: pixel-sweep 0.7s steps(2) forwards;
+}
+/* Pixel vertical distribution */
+.page-glitch .pixel:nth-child(1)  { --y: 0.05; animation-delay: 0.05s; }
+.page-glitch .pixel:nth-child(2)  { --y: 0.10; animation-delay: 0.07s; }
+.page-glitch .pixel:nth-child(3)  { --y: 0.15; animation-delay: 0.09s; }
+.page-glitch .pixel:nth-child(4)  { --y: 0.20; animation-delay: 0.11s; }
+.page-glitch .pixel:nth-child(5)  { --y: 0.25; animation-delay: 0.13s; }
+.page-glitch .pixel:nth-child(6)  { --y: 0.30; animation-delay: 0.15s; }
+.page-glitch .pixel:nth-child(7)  { --y: 0.35; animation-delay: 0.17s; }
+.page-glitch .pixel:nth-child(8)  { --y: 0.40; animation-delay: 0.19s; }
+.page-glitch .pixel:nth-child(9)  { --y: 0.45; animation-delay: 0.21s; }
+.page-glitch .pixel:nth-child(10) { --y: 0.50; animation-delay: 0.23s; }
+.page-glitch .pixel:nth-child(11) { --y: 0.55; animation-delay: 0.25s; }
+.page-glitch .pixel:nth-child(12) { --y: 0.60; animation-delay: 0.27s; }
+.page-glitch .pixel:nth-child(13) { --y: 0.65; animation-delay: 0.29s; }
+.page-glitch .pixel:nth-child(14) { --y: 0.70; animation-delay: 0.31s; }
+.page-glitch .pixel:nth-child(15) { --y: 0.75; animation-delay: 0.33s; }
+.page-glitch .pixel:nth-child(16) { --y: 0.80; animation-delay: 0.35s; }
+.page-glitch .pixel:nth-child(17) { --y: 0.85; animation-delay: 0.37s; }
+.page-glitch .pixel:nth-child(18) { --y: 0.90; animation-delay: 0.39s; }
+
+
+/* Animations */
+
+.countdown.glitch {
+  animation: countdown-glitch 0.2s steps(2) both;
+}
+
+@keyframes countdown-glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    text-shadow: 2px 0 var(--accent);
+  }
+  40% {
+    transform: translate(1px, -1px);
+    text-shadow: -2px 0 rgba(155,92,255,0.7);
+  }
+  60% {
+    transform: translate(-1px, 0);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
+
+@keyframes pixel-sweep {
+  0%   { opacity: 0; transform: translateX(0) scale(0.6); }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; transform: translateX(110vw) scale(1); }
+  100% { opacity: 0; transform: translateX(130vw) scale(0.3); }
+}
+
+@keyframes glitch-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes glitch-scan {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ACCESSIBILITY */
+
+/* LOGO LOAD ANIMATION */
+
+
+@keyframes logo-show {
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes logo-glitch {
+  0% { filter: none; }
+  30% { filter: drop-shadow(2px 0 var(--accent)); }
+  60% { filter: drop-shadow(-2px 0 #fff); }
+  100% { filter: none; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .page-glitch {
+    display: none !important;
+  }
+
+  .site-logo {
+    animation: none !important;
+    opacity: 0.9 !important;
+  }
+}
+
+/* =========================
+   MOBILE LAYOUT FIXES
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Stack upcoming + latest vertically */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Reduce artwork size on mobile */
+  .hero-artwork {
+    max-width: 85vw;
+    max-height: 32vh;
+  }
+
+  /* Slightly smaller countdown */
+  .countdown-time {
+    font-size: 1rem;
+  }
+
+  /* Reduce CTA size slightly */
+  .cta {
+    padding: 0.7rem 1.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  /* Tighter signup spacing */
+  .signup {
+    margin-top: 2rem;
+  }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}
+/* =========================
+   LOGO APPEAR (DESKTOP + MOBILE)
+   ========================= */
+
+.site-logo {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: auto;
+  z-index: 10000;
+  opacity: 0;                /* hidden initially */
+  pointer-events: none;
+
+  /* appears when glitch starts */
+  animation: logo-show 0s forwards 0.9s,
+             logo-glitch 0.4s steps(2) 0.9s;
+}
+
+@keyframes logo-show {
+  to {
+    opacity: 0.9;
+  }
+}
+
+}
+}
+
+@keyframes logo-glitch {
+  0%   { filter: none; }
+  30%  { filter: drop-shadow(2px 0 var(--accent)); }
+  60%  { filter: drop-shadow(-2px 0 #fff); }
+  100% { filter: none; }
+}
+
+/* =========================
+   MOBILE LOGO + SPACING
+   ========================= */
+
+@media (max-width: 768px) {␊
+  .site-logo {␊
+    height: 68px;␊
+    top: 18px;␊
+  }␊
+␊
+  /* Push hero content down so logo never overlaps */␊
+  .hero-content {␊
+    padding-top: 120px;
+  }␊
+}␊
+/* =========================
+   MOBILE: TIGHTEN SIGNUP SPACING
+   ========================= */
+
+@media (max-width: 768px) {
+  .signup {
+    margin-top: 0.25rem;     /* closer to hero artwork */
+    margin-bottom: 1.5rem;  /* keep breathing room before latest */
+  }
+}
+/* =========================
+   MOBILE: TIGHTEN SPACE ABOVE SIGNUP (REAL FIX)
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Reduce grid gap overall */
+  .hero-grid {
+    gap: 1.2rem;
+  }
+
+  /* Fine-tune signup spacing */
+  .signup {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+}
 
 .countdown-row {
   display: inline-flex;
@@ -248,3 +717,4 @@
   opacity: 0.65;
   transform: translateY(1px);
 }
+
