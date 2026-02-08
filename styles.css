@@ -227,3 +227,24 @@
 </body>
 
 </html>
+
+.countdown-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown-mute {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  min-height: auto;
+}
+
+.countdown-mute[aria-pressed="true"] {
+  opacity: 0.65;
+  transform: translateY(1px);
+}
