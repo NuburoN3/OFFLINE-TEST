@@ -80,7 +80,7 @@ body {
 
   background-image:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url("new-song-art.png");
+    url("thistown.png");
 
   background-size: cover;
   background-position: center;
@@ -696,15 +696,3 @@ body {
     margin-bottom: 1.5rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
